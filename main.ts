@@ -1,7 +1,7 @@
 const enum zustand {
-    //% block="unterbrochen"
+    //% block="interrupted"
     unterbrochen = 20,
-    //% block="nicht unterbrochen"
+    //% block="not interrupted"
     nicht_unterbrochen = 40
 }
 
@@ -20,7 +20,7 @@ namespace fischertechnik {
     //% subcategory="Phototransistor"
     //% pin.fieldEditor="gridpicker" 
     //% pin.fieldOptions.columns=4
-    //% blockId=LightLevel_create_event block="wenn Fototransistor an Pin %pin |  | %LSzustand"
+    //% blockId=LightLevel_create_event block="phototransistor at pin %pin | is | %LSzustand"
     export function onLightLevel(pin: AnalogPin, LSzustand: zustand, handler: () => void) {
         control.onEvent(LightEventID + pin + LSzustand, EventBusValue.MICROBIT_EVT_ANY, handler);
         control.inBackground(() => {
@@ -46,14 +46,14 @@ namespace fischertechnik {
     */
     //% subcategory="Phototransistor"
     //% blockId=readPhototransistor
-    //% block="Fototransistor an %pin| ist | %LSzustand"
+    //% block="Phototransistor at %pin| is | %LSzustand"
 
     export function readPhototransistor(pin: AnalogPin, LSzustand: zustand) {
         const LiLevel = pins.analogReadPin(pin);
         let Ergebnis = false;
-        if ((LiLevel > Empfindlichkeit) && (LSzustand == zustand.unterbrochen)) {
+        if ((LiLevel > Empfindlichkeit) && !(LSzustand == zustand.nicht_unterbrochen)) {
             Ergebnis = true;
-        } else if ((LiLevel <= Empfindlichkeit) && (LSzustand == zustand.nicht_unterbrochen)) {
+        } else if ((LiLevel <= Empfindlichkeit) && !(LSzustand == zustand.unterbrochen)) {
             Ergebnis = true;
         }
         return Ergebnis
@@ -62,13 +62,13 @@ namespace fischertechnik {
     /**
      * Set the sensitivity (analogvalue) of the photocell when 
      * it´s interrupted. Normaly not necessary with original 
-     * fischertechnik parts. The predefined value is 20
+     * fischertechnik parts. The predefined value is 20.
      * @param value - (analogvalue)
      */
     //% subcategory="Phototransistor"
     //% value.defl=20
     //% value.min=5 value.max=1023
-    //% blockId="SetLightSensitivity" block="setze Lichtempfindlichkeit auf %value"
+    //% blockId="SetLightSensitivity" block="set lightsensitivity to %value"
     export function SetLightSensitivity(value: number): void {
         Empfindlichkeit = value;
     }
