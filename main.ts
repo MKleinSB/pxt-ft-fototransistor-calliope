@@ -20,7 +20,7 @@ namespace fischertechnik {
     //% subcategory="Phototransistor"
     //% pin.fieldEditor="gridpicker" 
     //% pin.fieldOptions.columns=4
-    //% blockId=LightLevel_create_event block="phototransistor at pin %pin | is | %LSzustand"
+    //% blockId=onLightLevel block="phototransistor at pin %pin | is | %LSzustand"
     export function onLightLevel(pin: AnalogPin, LSzustand: zustand, handler: () => void) {
         control.onEvent(LightEventID + pin + LSzustand, EventBusValue.MICROBIT_EVT_ANY, handler);
         control.inBackground(() => {
