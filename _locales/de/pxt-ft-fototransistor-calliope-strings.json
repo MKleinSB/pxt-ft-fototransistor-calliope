@@ -1,0 +1,8 @@
+{
+    "fischertechnik.onLightLevel|block": "Fototransistor an pin %pin | ist | %LSzustand",
+    "fischertechnik.readPhototransistor|block": "Fototransistor an %pin| ist | %LSzustand",
+    "fischertechnik.SetLightSensitivity|block": "setze Lichtempfindlichkeit auf %value",
+    "zustand.unterbrochen|block": "unterbrochen",
+    "zustand.nicht_unterbrochen|block": "nicht unterbrochen",
+    "{id:subcategory}Phototransistor": "Fototransistor"
+}
