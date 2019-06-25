@@ -8,7 +8,7 @@
     },
     "files": [
         "README.md",
-        "_locales/de/pxt-ft-fototransistor-calliope-strings.json", 
+        "_locales/de/pxt-ft-fototransistor-calliope-strings.json",
         "main.ts"
     ],
     "testFiles": [

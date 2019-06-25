@@ -61,8 +61,11 @@ namespace fischertechnik {
 
     /**
      * Set the sensitivity (analogvalue) of the photocell when 
-     * it´s interrupted. Normaly not necessary with original 
+     * it´s interrupted. Normaly on Calliope Mini it´s
+     * not necessary with original 
      * fischertechnik parts. The predefined value is 20.
+     * On micro:bit the lightsensitivity should be 500
+     *  
      * @param value - (analogvalue)
      */
     //% subcategory="Phototransistor"
